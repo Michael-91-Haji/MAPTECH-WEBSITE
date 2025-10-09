@@ -1,27 +1,22 @@
-const text = "Why Choose us?";
-const target = document.querySelector(".type-text");
-let index = 0;
-let isDeleting = false;
+const menuButton = document.getElementById('menuButton');
+const mobileNav = document.getElementById('mobileNav');
 
-function typeLoop() {
-  if (!isDeleting && index <= text.length) {
-    target.textContent = text.substring(0, index);
-    index++;
-    setTimeout(typeLoop, 100);
-  } else if (isDeleting && index >= 0) {
-    target.textContent = text.substring(0, index);
-    index--;
-    setTimeout(typeLoop, 50);
+menuButton.addEventListener('click', () => {
+  if (mobileNav.style.display === 'flex') {
+    mobileNav.style.display = 'none';
   } else {
-    isDeleting = !isDeleting;
-    setTimeout(typeLoop, isDeleting ? 1000 : 500);
+    mobileNav.style.display = 'flex';
   }
-}
+});
 
-window.addEventListener("DOMContentLoaded", typeLoop);
+const mobileLinks = mobileNav.querySelectorAll('a');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.style.display = 'none';
+  });
+});
 
 const fadeElements = document.querySelectorAll('.fade-in');
-
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -31,30 +26,8 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, {
   threshold: 0.2
 });
-
 fadeElements.forEach(el => fadeObserver.observe(el));
 
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-function highlightNav() {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) {
-      link.classList.add('active');
-    }
-  });
-}
-
-window.addEventListener('scroll', highlightNav);
 
 const showMoreBtn = document.getElementById("view-all-btn");
 const hiddenServices = document.querySelectorAll(".service-card[id^='service-hidden']");
