@@ -22,98 +22,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="navbar">
-  <div class="logo-container">
-    <img src="LOGO.png" alt="LOGO" loading="lazy" />
-    <h1 class="logo-text">MAPTECH</h1>
-  </div>
 
-  <nav class="nav-links" id="nav-links">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Our Services</a></li>
-      <li><a href="#contacts">Contacts</a></li>
-    </ul>
-  </nav>
+<header id="header">
+    <div class="container">
+      <div class="logo">
+        <img src="Logo.png" alt="MAPTECH Logo">
+        <span>MAPTECH</span>
+      </div>
+      <nav class="desktop-nav" id="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="contact-cta">
+        <span class="phone"><i class="mdi mdi-phone-outline" style="color: blue;"></i> +255 754 123 456 789</span>
+        <button id="signUp">Sign Up</button>
+      </div>
+      <button id="menuButton">☰</button>
+    </div>
 
-  <div class="buttons">
-    <span class="phone-number"><i class="mdi mdi-phone-outline"></i> +255 754 123 456 789</span>
-    <button id="signUp">Sign Up</button>
+    <nav id="mobileNav" class="mobile-nav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button id="mobileQuote">Sign Up</button>
+    </nav>
+  </header>
 
-    <i class="mdi mdi-menu" id="menu"></i>
-  </div>
-
-<div class="humburger-menu" id="humburger-menu">
-  <ul>
-    <li><a href="#home"><i class="mdi mdi-home-variant"></i> Home</a></li>
-    <li><a href="#about"><i class="mdi mdi-format-list-text"></i> About Us</a></li>
-    <li><a href="#services"><i class="mdi mdi-dns"></i> Our Services</a></li>
-    <li><a href="#contacts"><i class="mdi mdi-contacts"></i> Contact Us</a></li>
-    <li><a href="#"><i class="mdi mdi-login"></i> Sign Up</a></li>
-  </ul>
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-</header>
-
-
-<section class="fade-in" id="home">
+<section id="home" class="fade-in">
   <div class="gradient-overlay"></div>
-    <div class="home-content">
-      <h1>Empowering Tanzania <br>
-        with <br>
-        <span>Advanced ICT <br>
-          Solutions
-        </span>
-      </h1>
-      <p>We deliver innovative, reliable, and secure Technology Solutions
-        designed to meet the unique needs of business and individuals across Tanzania.
-        Your trusted partner for digital transformation.
-      </p>
 
-      <div class="home-btns">
-        <a href="#services"><button id="explore-btn">Explore Our Services <i class="bi bi-arrow-right-short"></i></button></a>
+  <div class="home-content">
+    <h1>
+      Empowering Tanzania <br>
+      with <br>
+      <span>Advanced ICT <br> Solutions</span>
+    </h1>
+    <p>
+      We deliver innovative, reliable, and secure Technology Solutions designed to meet
+      the unique needs of businesses and individuals across Tanzania. Your trusted
+      partner for digital transformation.
+    </p>
 
-        <a href="#contacts"><button id="contact-btn">Contact Us Today</button></a>
+    <div class="home-btns">
+      <a href="#services" class="btn primary">
+        Explore Our Services <i class="bi bi-arrow-right-short"></i>
+      </a>
+      <a href="#contacts" class="btn outline">Contact Us Today</a>
+    </div>
+  </div>
+
+  <div class="home-icon">
+    <i class="bi bi-mouse"></i>
+  </div>
+
+  <div class="glassy-cards">
+    <div class="card-group">
+      <div class="card">
+        <i class="mdi mdi-shield-outline"></i>
+        <h3>100+</h3>
+        <h4>Security Solutions</h4>
+      </div>
+
+      <div class="card">
+        <i class="mdi mdi-lan"></i>
+        <h3>200+</h3>
+        <h4>Networks Deployed</h4>
       </div>
     </div>
 
-    <div class="home-icon"><i class="bi bi-mouse"></i></div>
+    <div class="card-group">
+      <div class="card">
+        <i class="mdi mdi-weather-cloudy"></i>
+        <h3>150+</h3>
+        <h4>Cloud Computing</h4>
+      </div>
 
-    <div class="glassy-cards">
-
-     <div class="card-group">
-        <div class="card">
-          <i class="mdi mdi-shield-outline"></i>
-          <h3>100+</h3>
-          <h4>Security Solutions</h4>
-        </div>
-
-        <div class="card">
-          <i class="mdi mdi-lan"></i>
-          <h3>200+</h3>
-          <h4>Networks Deployed</h4>
-        </div>
-     </div> 
-
-     <div class="card-group">
-        <div class="card">
-          <i class="mdi mdi-weather-cloudy"></i>
-          <h3>150+</h3>
-          <h4>Cloud Computing</h4>
-        </div>
-
-        <div class="card">
-          <i class="mdi mdi-palette"></i>
-          <h3>250+</h3>
-          <h4>Brands Created</h4>
-        </div>
-     </div>
-
+      <div class="card">
+        <i class="mdi mdi-palette"></i>
+        <h3>250+</h3>
+        <h4>Brands Created</h4>
+      </div>
     </div>
+  </div>
 </section>
+
 
 <section id="about" class="fade-in">
   <div class="topBar">
