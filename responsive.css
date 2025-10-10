@@ -37,6 +37,7 @@ section#about {
 .text-container p {
   font-size: 0.8rem;
   text-align: justify;
+  margin-top:1rem;
 }
 
 .reasoning-container {
@@ -290,4 +291,5 @@ select option {
 @media (max-width: 480px) {
   
 }
+
 
