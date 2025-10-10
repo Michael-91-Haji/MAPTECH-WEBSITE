@@ -73,7 +73,7 @@
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 1.3s ease-out, transform 1.3s ease-out;
 }
 
 .fade-in.visible {
@@ -394,7 +394,6 @@ header .logo span {
   gap: 1rem;
   width: 100%;
   padding: 0.5rem;
-  animation: fadeInFromRight 1s ease-out forwards;
 }
 
 .card-group {
@@ -541,6 +540,10 @@ section#about {
 .text-container h1 {
   font-size: 2.5rem;
   margin-top: 1rem;
+}
+
+.text-container p {
+  text-align: center !important;
 }
 
 .reasoning-container {
