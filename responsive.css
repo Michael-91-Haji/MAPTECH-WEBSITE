@@ -32,7 +32,6 @@ section#about {
   font-size: var(--heading-font-size);
   text-align: center;
   line-height: 1;
-  margin-top: -5%;
 }
 
 .text-container p {
