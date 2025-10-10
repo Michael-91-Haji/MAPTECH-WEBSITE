@@ -24,15 +24,6 @@ section#about {
   padding: 1rem 0;
 }
 
-.topBar {
-  height: 5vh;
-}
-
-.topBar img {
-  width: auto;
-  height: 50px;
-}
-
 .text-container {
   width: 100%;
 }
