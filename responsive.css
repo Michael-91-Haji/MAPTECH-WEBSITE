@@ -20,7 +20,7 @@
 @media (max-width: 768px) {
 section#about {
   height: fit-content !important;
-  gap: 2rem;
+  gap: 3rem;
   padding: 1rem 0;
 }
 
