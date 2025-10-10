@@ -24,6 +24,17 @@ section#about {
   padding: 1rem 0;
 }
 
+  @media (prefers-color-scheme: dark) {
+    section#about {
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    .sub-container span {
+    color: #e0e0e0;
+}
+  }
+
 .topBar {
   height: 5vh;
 }
