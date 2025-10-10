@@ -94,6 +94,7 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    background: var(--minor-color);
 }
 
 .gradient-overlay {
