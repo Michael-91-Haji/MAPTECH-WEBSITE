@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
-    <meta http-equiv="Content-Security-Policy" content=" default-src 'self';
-    script-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://cdn.jsdelivr.net/npm;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdn.jsdelivr.net/npm;
-    font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
-    img-src 'self' data: https://cdn.jsdelivr.net; connect-src 'self';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -47,7 +42,7 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contacts">Contact</a>
-      <button id="mobileQuote">Sign Up</button>
+      <button id="signUpMobile">Sign Up</button>
     </nav>
   </header>
 
@@ -280,7 +275,7 @@
             <button id="learn-more-btn">Learn More</button>
           </div>
 
-          <div class="service-card" id="service-hidden fade-in">
+          <div class="service-card fade-in" id="service-hidden">
             <div class="service-top">
               <i class="mdi mdi-shield-outline"></i>
               <h3>Security and Safety Solutions</h3>
@@ -365,7 +360,7 @@
 
           <div class="input-group">
             <label for="name">Email Address<span style="color: red;">*</span></label>
-            <input type="text" name="name" id="full-name" placeholder="" required />
+            <input type="text" name="name" id="emailAddress" placeholder="" required />
             <span id="emailError" style="color: red; font-weight: 500; font-size: 14px;"></span>
           </div>
 
@@ -375,13 +370,13 @@
           
           <div class="input-group">
             <label for="name">Phone Number</label>
-            <input type="text" name="name" id="full-name" placeholder="" />
+            <input type="text" name="name" id="phone-number" placeholder="" />
             <span id="phoneError" style="color: red; font-weight: 500; font-size: 14px;"></span>
           </div>
 
           <div class="input-group">
             <label for="name">Company Name</label>
-            <input type="text" name="name" id="full-name" placeholder="" />
+            <input type="text" name="name" id="company-name" placeholder="" />
             <span id="cNameError" style="color: red; font-weight: 500; font-size: 14px;"></span>
           </div>
 
@@ -459,8 +454,32 @@
     </section>
 
 
+<div id="chat-icon" class="chat-icon">
+  <i class="mdi mdi-message-text-outline"></i>
+</div>
 
-    <script src="script.js"></script>
+<div id="chat-popup" class="chat-popup">
+  <div class="chat-header">
+    <img src="Logo.png" alt="MapTech Logo" class="chat-logo">
+    <span>Live Chat - MAPTECH</span>
+    <i class="mdi mdi-close" id="close-chat"></i>
+  </div>
+
+  <div class="chat-body" id="chat-body">
+    <div class="bot-message">
+      👋 Hi there! How can we help you today?
+    </div>
+  </div>
+
+  <div class="chat-input-container">
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="send-chat"><i class="mdi mdi-send"></i></button>
+  </div>
+</div>
+
+
+
+    <script src="script.js" defer></script>
 </body>
 </html>
 
@@ -525,6 +544,14 @@
         </div>
       </div>
     </div>
+
+    
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self';
+    script-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://cdn.jsdelivr.net/npm;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdn.jsdelivr.net/npm;
+    font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
+    img-src 'self' data: https://cdn.jsdelivr.net; connect-src 'self';">
+
 
 </footer> -->
 
