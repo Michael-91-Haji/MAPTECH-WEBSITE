@@ -1,4 +1,3 @@
-// Wrap everything to ensure DOM is loaded
 window.addEventListener("DOMContentLoaded", () => {
   const chatIcon = document.getElementById("chat-icon");
   const chatPopup = document.getElementById("chat-popup");
@@ -7,83 +6,81 @@ window.addEventListener("DOMContentLoaded", () => {
   const chatInput = document.getElementById("chat-input");
   const chatBody = document.getElementById("chat-body");
 
-  // Add floating animation
   chatIcon.classList.add("chat-floating");
 
-  // Open chat popup
   chatIcon.addEventListener("click", () => {
     chatPopup.style.display = "flex";
     chatIcon.style.display = "none";
   });
 
-  // Close chat popup
   closeChat.addEventListener("click", () => {
     chatPopup.style.display = "none";
     chatIcon.style.display = "flex";
   });
 
-  // Bot response logic
   function getBotResponse(message) {
     const msg = message.toLowerCase();
-
     if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey")) {
-      return "👋 Hi there! How can I help you today?";
+      return "👋 Hi there! How can I assist you today?";
     }
     if (msg.includes("how are you")) {
-      return "😊 I'm just a bot, but I'm here to help you! How can I assist?";
+      return "😊 I'm just a bot, but I'm ready to help you!";
     }
-    if (msg.includes("services") || msg.includes("offer") || msg.includes("what do you do")) {
+    if (msg.includes("services") || msg.includes("offer")) {
       return "We provide Security, Networking, Cloud, and IT Training solutions. Which one interests you?";
     }
     if (msg.includes("phone") || msg.includes("call")) {
       return "📞 You can reach us at +255 754 123 456 789.";
     }
     if (msg.includes("email")) {
-      return "✉️ Our email is info@maptech.co.tz. Feel free to send us a message!";
+      return "✉️ Our email is info@maptech.co.tz.";
     }
     if (msg.includes("location") || msg.includes("office") || msg.includes("where")) {
       return "📍 We are located at TTCL Building, Kijitonyama, Dar es Salaam, Tanzania.";
     }
     if (msg.includes("hours") || msg.includes("open") || msg.includes("time")) {
-      return "🕗 Our business hours are Mon-Fri 8:00 AM - 6:00 PM, Sat 9:00 AM - 4:00 PM, Sunday closed.";
+      return "🕗 Mon-Fri 8:00 AM - 6:00 PM, Sat 9:00 AM - 4:00 PM, Sunday closed.";
     }
     if (msg.includes("thanks") || msg.includes("thank you")) {
-      return "🙏 You're welcome! Do you have any other questions?";
+      return "🙏 You're welcome! Any other questions?";
     }
     if (msg.includes("bye") || msg.includes("goodbye")) {
       return "👋 Goodbye! Have a great day!";
     }
-
-    return "🤖 Thanks for your message! Our team will respond shortly.";
+    return "🤖 Thanks for your message! Our team will get back to you shortly.";
   }
 
-  // Typing effect for bot message
   function typeBotMessage(text) {
     const botMsg = document.createElement("div");
     botMsg.classList.add("bot-message");
 
-    // Add typing indicator
-    const typingIndicator = document.createElement("span");
-    typingIndicator.classList.add("typing");
-    typingIndicator.textContent = "Typing...";
-    botMsg.appendChild(typingIndicator);
+    const loading = document.createElement("span");
+    loading.classList.add("loading-dots");
+    loading.textContent = ".";
+    botMsg.appendChild(loading);
     chatBody.appendChild(botMsg);
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // After short delay, remove typing and show message letter by letter
+    let dotCount = 0;
+    const dotInterval = setInterval(() => {
+      dotCount = (dotCount + 1) % 4;
+
+      loading.textContent = ".".repeat(dotCount);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 500);
+
     setTimeout(() => {
-      botMsg.removeChild(typingIndicator);
+      clearInterval(dotInterval);
+      botMsg.removeChild(loading);
+
       let i = 0;
-      const interval = setInterval(() => {
-        if (i < text.length) {
-          botMsg.textContent += text.charAt(i);
-          chatBody.scrollTop = chatBody.scrollHeight;
-          i++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 30); // typing speed in milliseconds per character
-    }, 800); // delay before typing starts
+      const typingInterval = setInterval(() => {
+        botMsg.textContent += text.charAt(i);
+        i++;
+        chatBody.scrollTop = chatBody.scrollHeight;
+        if (i >= text.length) clearInterval(typingInterval);
+      }, 30 + Math.random() * 50);
+    }, 1000 + Math.random() * 500);
   }
 
   function sendMessage() {
@@ -97,10 +94,8 @@ window.addEventListener("DOMContentLoaded", () => {
     chatInput.value = "";
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    setTimeout(() => {
-      const response = getBotResponse(msg);
-      typeBotMessage(response);
-    }, 300);
+    const response = getBotResponse(msg);
+    typeBotMessage(response);
   }
 
   sendBtn.addEventListener("click", sendMessage);
@@ -108,9 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") sendMessage();
   });
 });
-
-
-
+  
 
 
 
