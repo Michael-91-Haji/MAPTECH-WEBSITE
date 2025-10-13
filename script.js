@@ -1,3 +1,4 @@
+// Wrap everything to ensure DOM is loaded
 window.addEventListener("DOMContentLoaded", () => {
   const chatIcon = document.getElementById("chat-icon");
   const chatPopup = document.getElementById("chat-popup");
@@ -6,18 +7,22 @@ window.addEventListener("DOMContentLoaded", () => {
   const chatInput = document.getElementById("chat-input");
   const chatBody = document.getElementById("chat-body");
 
+  // Add floating animation
   chatIcon.classList.add("chat-floating");
 
+  // Open chat popup
   chatIcon.addEventListener("click", () => {
     chatPopup.style.display = "flex";
     chatIcon.style.display = "none";
   });
 
+  // Close chat popup
   closeChat.addEventListener("click", () => {
     chatPopup.style.display = "none";
     chatIcon.style.display = "flex";
   });
 
+  // Bot response logic
   function getBotResponse(message) {
     const msg = message.toLowerCase();
 
@@ -27,26 +32,21 @@ window.addEventListener("DOMContentLoaded", () => {
     if (msg.includes("how are you")) {
       return "😊 I'm just a bot, but I'm here to help you! How can I assist?";
     }
-
     if (msg.includes("services") || msg.includes("offer") || msg.includes("what do you do")) {
       return "We provide Security, Networking, Cloud, and IT Training solutions. Which one interests you?";
     }
-
     if (msg.includes("phone") || msg.includes("call")) {
       return "📞 You can reach us at +255 754 123 456 789.";
     }
     if (msg.includes("email")) {
       return "✉️ Our email is info@maptech.co.tz. Feel free to send us a message!";
     }
-
     if (msg.includes("location") || msg.includes("office") || msg.includes("where")) {
       return "📍 We are located at TTCL Building, Kijitonyama, Dar es Salaam, Tanzania.";
     }
-
     if (msg.includes("hours") || msg.includes("open") || msg.includes("time")) {
       return "🕗 Our business hours are Mon-Fri 8:00 AM - 6:00 PM, Sat 9:00 AM - 4:00 PM, Sunday closed.";
     }
-
     if (msg.includes("thanks") || msg.includes("thank you")) {
       return "🙏 You're welcome! Do you have any other questions?";
     }
@@ -55,6 +55,35 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     return "🤖 Thanks for your message! Our team will respond shortly.";
+  }
+
+  // Typing effect for bot message
+  function typeBotMessage(text) {
+    const botMsg = document.createElement("div");
+    botMsg.classList.add("bot-message");
+
+    // Add typing indicator
+    const typingIndicator = document.createElement("span");
+    typingIndicator.classList.add("typing");
+    typingIndicator.textContent = "Typing...";
+    botMsg.appendChild(typingIndicator);
+    chatBody.appendChild(botMsg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // After short delay, remove typing and show message letter by letter
+    setTimeout(() => {
+      botMsg.removeChild(typingIndicator);
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          botMsg.textContent += text.charAt(i);
+          chatBody.scrollTop = chatBody.scrollHeight;
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 30); // typing speed in milliseconds per character
+    }, 800); // delay before typing starts
   }
 
   function sendMessage() {
@@ -69,12 +98,9 @@ window.addEventListener("DOMContentLoaded", () => {
     chatBody.scrollTop = chatBody.scrollHeight;
 
     setTimeout(() => {
-      const botMsg = document.createElement("div");
-      botMsg.classList.add("bot-message");
-      botMsg.textContent = getBotResponse(msg);
-      chatBody.appendChild(botMsg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }, 600);
+      const response = getBotResponse(msg);
+      typeBotMessage(response);
+    }, 300);
   }
 
   sendBtn.addEventListener("click", sendMessage);
@@ -82,6 +108,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") sendMessage();
   });
 });
+
+
+
+
+
 
 /* ------ */
 
