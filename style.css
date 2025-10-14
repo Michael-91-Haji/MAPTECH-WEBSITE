@@ -1217,13 +1217,11 @@ border-radius: 50%;
 }
 
 .status {
-  background-color: lime;
-  padding: 0.4rem 0.4rem;
-  border-radius: 50%;
+  color:lime;
   position: absolute;
-  left: 20%;
-  top: 10%;
-  border: 2px solid white;
+  left: 30%;
+  top: 60%;
+  font-size: 0.6rem;
 }
 
 #close-chat {
