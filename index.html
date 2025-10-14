@@ -454,30 +454,61 @@
     </section>
 
 
-<div id="chat-icon" class="chat-icon">
-  <i class="mdi mdi-message-text-outline"></i>
-</div>
-
-<div id="chat-popup" class="chat-popup">
-  <div class="chat-header">
-    <img src="Logo.png" alt="MapTech Logo" class="chat-logo">
-    <span>Live Chat - MAPTECH</span>
-    <i class="mdi mdi-close" id="close-chat"></i>
+<div id="chat-icon">
+   <i class="mdi mdi-message-text-outline"></i>
   </div>
 
-  <div class="chat-body" id="chat-body">
-    <div class="bot-message">
-      👋 Hi there! How can we help you today?
+  <div id="chat-popup">
+    
+    <div class="chat-header">
+      <div class="title">
+        <i class="mdi mdi-message-text-outline"></i>
+        Chat Support
+        <div class="status"></div>
+        <div></div>
+        <div></div>
+      </div>
+      <button id="close-chat" title="Close">
+        <i class="mdi mdi-close"></i>
+      </button>
     </div>
+
+    <div id="chat-body"></div>
+
+    <div class="chat-footer">
+      <button id="emoji-btn" title="Emojis">
+        <i class="mdi mdi-emoticon-happy-outline"></i>
+      </button>
+      <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" />
+      <button id="send-btn" title="Send">
+        <i class="mdi mdi-send"></i>
+      </button>
+    </div>
+    
+  <div id="emoji-picker">
+    <button>😀</button>
+    <button>😁</button>
+    <button>😂</button>
+    <button>😅</button>
+    <button>😊</button>
+    <button>😍</button>
+    <button>😎</button>
+    <button>😢</button>
+    <button>😭</button>
+    <button>😡</button>
+    <button>👍</button>
+    <button>🙏</button>
+    <button>💪</button>
+    <button>🤔</button>
+    <button>😴</button>
+    <button>🤗</button>
+    <button>🥳</button>
+    <button>😇</button>
+    <button>😋</button>
+    <button>❤️</button>
   </div>
-
-  <div class="chat-input-container">
-    <input type="text" id="chat-input" placeholder="Type your message...">
-    <button id="send-chat"><i class="mdi mdi-send"></i></button>
   </div>
-</div>
-
-
+
 
     <script src="script.js" defer></script>
 </body>
