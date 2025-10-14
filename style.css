@@ -24,6 +24,19 @@
   --muted: #f0f0f0;
 }
 
+@keyframes bounce-chat {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-15px) scale(1.1);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+
 @keyframes zoomInOut {
   0% {transform: scale(1);}
   100% {transform: scale(1.1);}
@@ -1159,6 +1172,8 @@ footer {
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   z-index: 20000;
   transition: transform .18s ease;
+  animation: bounce-chat 2s infinite;
+  transform-origin: bottom center;
 }
 #chat-icon:hover { transform: scale(1.05); }
 
