@@ -1211,7 +1211,7 @@ footer {
 }
 
 .chat-header .title i { font-size:18px;
-padding: 0.6rem 1rem;
+padding: 0.7rem 1rem;
 background-color: black;
 border-radius: 50%;
 }
@@ -1219,7 +1219,7 @@ border-radius: 50%;
 .status {
   color:lime;
   position: absolute;
-  left: 30%;
+  left: 40%;
   top: 60%;
   font-size: 0.6rem;
 }
